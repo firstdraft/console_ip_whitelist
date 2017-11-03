@@ -27,11 +27,15 @@ module ConsoleIpWhitelist
     end
 
     def error_message
-  %Q{Uh oh! Something went wrong.
+      <<-HTML
+        <h1>Uh oh! You've got an error in your code.</h1>
 
- If you are the application owner, to get a more helpful error page please run this command at a terminal prompt:
+        <h2>To get a more helpful error page, please run this command at a terminal prompt:</h2>
 
- `bin/whitelist #{@ip}`}
+        <pre style="font-size: 4em;"><code>bin/whitelist #{@ip}</code></pre>
+
+        <h2>and then restart your server.</h2>
+      HTML
     end
   end
 end
