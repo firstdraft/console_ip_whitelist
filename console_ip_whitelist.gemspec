@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
 
   s.executables = ['ipwhitelist']
 
+  s.add_development_dependency(%q<better_errors>)
+
 end
