@@ -10,11 +10,19 @@ module ConsoleIpWhitelist
 
     config.after_initialize do
       path = Rails.root.join('whitelist.yml')
+      default_whitelist_path = Rails.root.join("default_whitelist.yml")
+      whitelisted_ips = []
+
       if File.exist?(path)
         whitelisted_ips = YAML.load_file(path)
-        whitelisted_ips.each do |ip|
-          BetterErrors::Middleware.allow_ip!(ip)
-        end
+      end
+
+      if File.exist?(default_whitelist_path)
+        whitelisted_ips = whitelisted_ips.concat(YAML.load_file(default_whitelist_path))
+      end
+
+      whitelisted_ips.each do |ip|
+        BetterErrors::Middleware.allow_ip!(ip)
       end
     end
 

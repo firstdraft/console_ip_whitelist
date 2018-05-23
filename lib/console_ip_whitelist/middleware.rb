@@ -18,8 +18,21 @@ module ConsoleIpWhitelist
 
     def pass_through?
       path = Rails.root.join('whitelist.yml')
+      default_whitelist_path = Rails.root.join("default_whitelist.yml")
+      whitelisted_ips = []
+      file_exist = false
+
       if File.exist?(path)
+        file_exist = true
         whitelisted_ips = YAML.load_file(path)
+      end
+
+      if File.exist?(default_whitelist_path)
+        file_exist = true
+        whitelisted_ips = whitelisted_ips.concat(YAML.load_file(default_whitelist_path))
+      end
+
+      if file_exist
         whitelisted_ips.include?(@ip)
       else
         true
