@@ -41,13 +41,69 @@ module ConsoleIpWhitelist
 
     def error_message
       <<-HTML
-        <h1>Uh oh! You've got an error in your code.</h1>
+      <!DOCTYPE html>
+<html>
 
-        <h2>To get a more helpful error page, please run this command at a terminal prompt:</h2>
+<head>
+  <title>Enhance your error page</title>
 
-        <pre style="font-size: 4em;"><code>bin/whitelist #{@ip}</code></pre>
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+  <meta charset="utf-8">
 
-        <h2>and then restart your server.</h2>
+  <!-- Connect Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <!-- Make it responsive to small screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div class="container pt-4 text-center">
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <div class="alert alert-danger">
+          <p class="h2">
+            Hey you — yes, <span style="text-transform: uppercase;">you</span> — <em>read</em> this message, don't ignore it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="display-4">Congratulations! There's an error in your code. That means you're making progress!</h1>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <p class="h3">Now it's time to debug. To get a really helpful error page, copy-paste this command at a terminal prompt:</p>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <div class="jumbotron py-2 mb-3">
+          <pre style="font-size: 2.5em;"><code>bin/whitelist #{@ip}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <p class="h3">and then <span style="text-transform: uppercase;">restart your server</span>. Then, refresh this page. You'll see a supercharged error page. In addition to the high-level error message at the top of the page, you'll have:</p>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-8 offset-md-2">
+        <img src="https://firstdraft.github.io/console_ip_whitelist/better_errors_diagram.png" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
       HTML
     end
   end
