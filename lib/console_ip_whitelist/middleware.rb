@@ -84,7 +84,7 @@ module ConsoleIpWhitelist
     <div class="row mb-3">
       <div class="col-md-8 offset-md-2">
         <div class="jumbotron py-2 mb-3">
-          <pre style="font-size: 2.5em;"><code>bin/whitelist #{@ip}</code></pre>
+          <pre style="font-size: 2em;"><code>bin/whitelist #{@ip}</code></pre>
         </div>
       </div>
     </div>
